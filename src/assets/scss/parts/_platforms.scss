@@ -1,0 +1,43 @@
+.platforms {
+	&__container {
+		@include flex-grid-row();
+		padding-bottom: 100px;
+	}
+	&__title {
+		@include flex-grid-column(12);
+		color: $black;
+		font-size: rem-calc(36);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-top: 90px;
+	}
+	&__wrap {
+		margin-top: 50px;
+		@include flex-grid-column(4);
+		display: flex;
+		align-items: center;
+		@include breakpoint (medium only) {
+			@include flex-grid-column(6);									
+		}
+		@include breakpoint (small only) {
+			@include flex-grid-column(12);									
+		}
+	}
+	&__icon {
+		font-size: rem-calc(48);
+		color: $yellow;
+		padding-left: 30px;
+	}
+	&__link {
+		display: inline-block;
+		padding-left: 40px;
+		color: $black;
+		font-size: rem-calc(14);
+		font-weight: 700;
+		text-transform: uppercase;
+		text-decoration: none;
+		&:hover {
+			color: $yellow;
+		}
+	}
+}

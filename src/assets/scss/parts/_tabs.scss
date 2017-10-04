@@ -1,0 +1,120 @@
+.tabs {
+	background: url('../img/tabs-bg.png');
+	background-repeat: 	no-repeat;	
+	background-position: top;
+	border-bottom: 10px solid $yellow;
+	@include breakpoint (small only) {
+		background-size: cover;
+	}
+	&__container {
+		@include flex-grid-row();
+	}
+	&__menu {
+		display: flex;
+		border: 2px solid $yellow;
+		padding-left: 0;
+		margin-top: 70px;
+		@include breakpoint (medium only) {
+			margin-left: 10px;						
+		}
+		@include breakpoint (small only) {
+			display: block;
+			width: 100%;	
+			margin-top: 70px;					
+		}	
+		&-item {
+			list-style: none;
+		}
+		&-link {
+			display: inline-block;
+			text-decoration: none;
+			color: $black;
+			font-size: rem-calc(14);
+			font-weight: 700;
+			text-transform: uppercase;
+			padding: 20px 50px;
+			transition: background-color .3s ease;
+			@include breakpoint (medium only) {
+				font-weight: 500;
+				padding: 15px;					
+			}
+			@include breakpoint (small only) {
+				width: 100%;	
+			}
+			&:hover {
+				background-color: $yellow;
+				opacity: .5;
+			}
+			&--active {
+				background-color: $yellow;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&__info {
+		@include flex-grid-column(6);
+		margin-top: 50px;
+		margin-bottom: 100px;
+		display: none;
+		@include breakpoint (medium only) {
+			@include flex-grid-column(10);							
+		}
+		@include breakpoint (small only) {
+			@include flex-grid-column(12);	
+			margin-top: 0;	
+			margin-bottom: 30px;		
+		}
+	}
+	&__title {
+		color: $black;
+		font-size: rem-calc(36);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+	}
+	&__txt {
+		color: #979797;
+		font-family: $body-font-family-myriad;
+		font-size: rem-calc(14);
+		font-weight: 400;
+		margin-bottom: 80px;
+		@include breakpoint (small only) {
+			margin-bottom: 30px;		
+		}
+
+	}
+	&__btns {
+		@include breakpoint (small only) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;			
+		}
+		&-link {
+			display: inline-block;
+			text-decoration: none;
+			padding: 20px;
+			color: $black;
+			font-size: rem-calc(14);
+			font-weight: 700;
+			text-transform: uppercase;
+			border: 2px solid $yellow;
+			transition: background-color .3s ease;
+			@include breakpoint (medium only) {
+				font-size: rem-calc(12);
+				padding: 15px;							
+			}
+			&:first-child {
+				margin-right: 30px;
+				@include breakpoint (small only) {
+					margin-right: 0;
+					margin-bottom: 10px;		
+				}
+			}
+			&:hover {
+				background-color: $yellow;
+			}			
+		}
+	}
+}

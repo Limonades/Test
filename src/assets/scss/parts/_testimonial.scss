@@ -1,0 +1,88 @@
+.testimonial {
+	background-color: #f8f8f8;
+	&__container {
+		@include flex-grid-row();
+		display: flex;
+		flex-direction: column;
+	}
+	&__title {
+		padding-left: 10px;
+		color: $black;
+		font-size: rem-calc(36);
+		font-weight: 700;
+		text-transform: uppercase;
+		position: relative;
+		margin-top: 100px;
+		margin-bottom: 90px;
+		&:before {
+			font-family: FontAwesome;
+			content: '\f0e5';
+			color: $yellow;
+			position: absolute;
+			left: 250px;
+			top: -20px;
+			font-size: rem-calc(24);
+		}
+	}
+	&__slider {
+		.slick-dots {
+			@include flex-grid-column(12);
+			margin-top: 50px;
+			li:not(.slick-active) {
+				button {
+					&:before {
+						color: black;
+					}
+					&:hover:before {
+						color: $yellow;
+					}
+				}				
+			}
+		}
+	}
+	&__slide {
+		outline: none;
+		@include flex-grid-row();
+
+		@include flex-grid-column(4);
+		@include breakpoint (medium only) {
+			@include flex-grid-column(5);			
+		}
+		@include breakpoint (small only) {
+			@include flex-grid-column(10);			
+		}
+	}
+	&__video {
+		max-width: 370px;
+		max-height: 290px;
+		width: 100%;
+		height: 100%;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	&__name {
+		color: $black;
+		font-size: rem-calc(14);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: rem-calc(30);
+	}
+	&__position {
+		color: #979797;
+		font-size: rem-calc(14);
+		font-weight: 400;
+		margin-bottom: 0;
+	}
+	&__adress {
+		text-decoration: none;
+		color: $black;
+		font-size: rem-calc(14);
+		font-weight: 700;
+		margin-bottom: 0;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+

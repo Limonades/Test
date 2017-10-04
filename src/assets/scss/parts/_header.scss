@@ -1,0 +1,366 @@
+.header {
+	background-color: black;
+	background-image: url('../img/infinox-bull.png');
+	background-size: cover;
+	&__container {
+	}
+	&__nav {
+		width: 100%;
+		align-items: center;
+		position: fixed;	
+		z-index: 1000;
+		transition: background-color 1s ease;
+		@include breakpoint (medium down) {
+			@include flex-grid-row();
+			background-color: $black;
+			padding: 20px 0;
+		}
+		&--fixed {
+			// transition: background-color 1s ease;
+			position: fixed;
+			z-index: 1000;
+			background-color: black;
+		}
+		&-logo {
+			text-align: right;
+			@include flex-grid-column(2);
+			@include breakpoint (medium down) {
+				@include flex-grid-column(3);
+			}
+			@include breakpoint (small only) {
+				@include flex-grid-column(8);
+				display: flex;
+				justify-content: center;
+			}
+		}
+		&-menu {
+			@include flex-grid-column(6);
+			display: flex;
+			margin: 0;	
+			padding-top: rem-calc(15);
+			font-size: 0;
+			&:hover {
+				cursor: pointer;
+			}
+			@include breakpoint (medium down) {
+				-webkit-box-shadow: 0px 104px 80px 42px rgba(0,0,0,0.9);
+				-moz-box-shadow: 0px 104px 80px 42px rgba(0,0,0,0.9);
+				box-shadow: 0px 104px 80px 42px rgba(0,0,0,0.9);
+				@include flex-grid-row();
+				padding: 0;
+			}	
+			&-item {
+				padding: 0 20px;
+				list-style-type: none;	
+				&:hover {
+					cursor: pointer;
+				}
+				@include breakpoint (medium down) {
+					position: relative;
+					&:after {
+						font-family: FontAwesome;
+						content: "\f0d7";
+						color: $yellow;
+						position: absolute;
+						right: 30px;
+						top: 15px;
+					}
+				}
+			}
+			&-link {
+				font-size: 14px;
+				display: inline-block;
+				color: $white;
+				text-decoration: none;
+				text-transform: uppercase;
+				padding-bottom: 15px;
+				border-bottom: 3px solid transparent;
+				transition: all .3s ease;
+				&--active {
+					color: $yellow;
+					border-bottom: 3px solid $yellow;
+				}
+				&:hover {
+					color: $yellow;
+					border-bottom: 3px solid $yellow;
+				}
+				@include breakpoint (medium down) {
+      				padding-bottom:0;
+					&:hover {
+						border-bottom: 3px solid transparent;
+					}
+				}
+			}			
+		}
+		&-mobile-menu {
+			display: none;
+			margin: 0;
+			font-size: 14px;
+			
+			&:hover {
+				cursor: pointer;
+			}
+			@include breakpoint (medium down) {
+				padding: 0;
+			}	
+			&-item {
+				padding: 0 20px;
+				list-style-type: none;
+				&:hover {
+					cursor: pointer;
+				}
+				@include breakpoint (medium down) {
+					&:hover {
+					}
+				}
+			}
+			&-link {
+
+			}
+		}
+		&-dropdown {
+			@include flex-grid-row();
+			@include flex-grid-column(12);	
+			display: none;
+			border-top: 1px solid #242424;
+			&__menu {
+				@include flex-grid-column(2.5);		
+				padding-top: rem-calc(10);	
+				&:first-child {
+					@include grid-col-off(2);
+					padding-left: 25px;
+				}
+				&-item {
+					padding: 5px 0;
+					list-style-type: none;					
+					&--first-first {
+						&:last-child {
+							&:before {
+								font-size: 14px;
+								font-family: FontAwesome;
+								content: "\f01d";
+								color: $yellow;
+								padding-right: 5px;
+							}						
+						}						
+					}
+					&--second-first {
+						&:last-child {
+							&:before {
+								font-size: 14px;
+								font-family: FontAwesome;
+								content: "\f03d";
+								color: $yellow;
+								padding-right: 5px;
+							}						
+						}	
+					}
+				}
+				&-link {
+					display: inline-block;
+					color: $white;
+					text-decoration: none;
+					text-transform: uppercase;
+					transition: all .3s ease;
+					font-size: rem-calc(12);
+					max-width: 180px;
+					&:hover {
+						color: $yellow;
+					}					
+				}
+			}
+			&-first {
+
+			}
+			
+			&-container {						
+				position: absolute;
+				left: 0;
+				width: 100%;
+				background-color: black;
+				z-index: 10;
+
+			}
+			&__watch {
+				display: flex;
+				align-items: center;
+				@include flex-grid-column(5);	
+				background-color: $yellow;
+				&-link {
+					@include breakpoint (medium down) {
+						display: inline-block;
+						@include flex-grid-column(6);
+					}
+					@include breakpoint (small only) {
+						display: none;						
+					}
+				}
+				&-txt {
+					@include breakpoint (medium down) {
+						@include flex-grid-column(6);
+					}
+					@include breakpoint (small only) {
+						@include flex-grid-column(12);
+					}
+				}
+				&-title {
+					color: $black;
+					font-size: rem-calc(20);
+					line-height: 30px;
+					text-transform: uppercase;
+					max-width: 370px;
+				}
+				&-btn {
+					display: inline-block;
+					margin-bottom: 10px;
+					padding: 10px 20px;
+					text-decoration: none;
+					background-color: $black;
+					color: white;
+				    font-size: rem-calc(16);
+					text-transform: uppercase;
+					&:hover {
+						
+					}
+				}
+			}
+		}
+		&-buttons {
+			display: flex;
+			@include flex-grid-column(3);
+			justify-content: flex-end;
+			@include breakpoint (medium down) {
+				@include flex-grid-column(6);
+				@include grid-col-off(1);					
+			}
+			@include breakpoint (small only) {
+				margin-top: 30px;
+				@include grid-col-off(0);	
+				@include flex-grid-column(12);
+				justify-content: center;
+			}
+
+			&-up {
+				text-align: center;
+				padding: 20px 30px;
+				border: 2px solid $yellow;
+				display: inline-block;
+				color: $white;
+				text-decoration: none;
+				text-transform: uppercase;
+				transition: background-color .3s ease;
+				&:hover {
+					background-color: $yellow;
+				}				
+			}
+			&-in {
+				margin-left: 30px;
+				color: $yellow;
+				text-decoration: none;
+				text-transform: uppercase;
+				padding: 20px 30px;
+				border: 2px solid transparent;
+				display: inline-block;
+				text-transform: uppercase;
+				transition: background-color .3s ease;
+				&:hover {
+					color: white;
+					background-color: $yellow;
+				}					
+			}	
+		}
+	}
+	&__info {
+		@include flex-grid-row();
+		padding-bottom: 50px;
+		&-slider {
+			padding-top: rem-calc(200);
+			@include flex-grid-column(12);
+			
+		}
+		&-slide {
+			@include flex-grid-column(12);
+			outline: none;			
+			&-list {
+				display: flex;
+				padding-left: 0;
+				@include breakpoint (small only) {
+					display: none;						
+				}
+				&-item {
+					list-style: none;
+					padding: 0 25px;
+					color: $white;
+					text-transform: uppercase;
+					position: relative;
+					&:first-child {
+						padding-left: 0;
+						color: $yellow;
+						&:before {
+							display: none;
+						}
+					}
+					&:before {
+						font-family: FontAwesome;
+						content: "\f0da";
+						color: $yellow;
+						position: absolute;
+						left: 0;
+					}
+				}
+			}
+			&-title {
+				color: $white;
+				font-size: rem-calc(60);
+				font-weight: 700;
+				text-transform: uppercase;
+				@include breakpoint (small only) {
+					font-size: rem-calc(48);						
+				}
+			}
+			&-txt {
+				color: $light-gray;
+				font-size: rem-calc(16);
+				font-weight: 400;
+				line-height: 22px;
+				font-weight: 400;
+				margin-top: 0;
+				margin-bottom: 60px;
+			}
+			&-btn {
+				margin-bottom: 115px;
+				text-align: center;
+				display: inline-block;
+				text-decoration: none;
+				padding: 16px 64px;
+				background-color: $yellow;
+				border-radius: 5px;
+				box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);	
+				border: 2px solid transparent;
+				transition: border .3s ease;
+				&:hover {
+					border: 2px solid white;
+				}
+				@include breakpoint (small only) {
+					margin-bottom: 0;						
+				}
+				&-title {
+					margin: 0;
+					color: $black;
+					font-weight: 700;
+					text-transform: uppercase;
+				}
+				&-subtitle {
+					margin: 0;
+					color: #917500;
+				}
+			}
+		}	
+	}		
+}
+
+.color-text {
+	color: $yellow;
+	background-color: transparent;
+}
+

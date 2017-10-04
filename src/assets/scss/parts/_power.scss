@@ -1,0 +1,108 @@
+.power {
+	background: url('../img/bacgrad.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	&__container {
+		@include flex-grid-row();
+	}
+	&__left {
+		@include flex-grid-column(4);
+		padding: 100px 0;	
+		@include breakpoint (small only) {
+			@include flex-grid-column(12);						
+		}	
+		@include breakpoint (small only) {
+			padding-bottom: 20px;
+			text-align: center;			
+		}
+	}
+	&__title {
+		margin: 0;
+		margin-bottom: 30px;
+		color: white;
+		font-size: rem-calc(36);
+		font-weight: 700;
+		text-transform: uppercase;
+		position: relative;
+		&:after {
+			font-family: FontAwesome;
+			content: '\f080';
+			position: absolute;
+			top: -20px;
+    		right: 85px;
+			color: $yellow;
+			font-size: rem-calc(18);
+		}
+	}
+	&__btn {
+		display: inline-block;
+		padding: 20px 40px;
+		background-color: $yellow;
+		text-decoration: none;
+		color: black;
+		text-transform: uppercase;
+		font-weight: 700;
+		border: 2px solid transparent;
+		transition: border .3s ease;
+		&:hover {
+			border: 2px solid white;			
+		}
+
+		
+	}
+	&__right {
+		@include flex-grid-column(8);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@include breakpoint (medium down) {
+			align-items: center;			
+		}
+		@include breakpoint (small only) {
+			@include flex-grid-column(12);						
+		}
+	}
+	&__info {
+		padding-left: 0;
+		display: flex;
+		@include breakpoint (medium down) {
+			flex-direction: column;			
+		}
+		@include breakpoint (small only) {
+			padding-left: 0;		
+		}
+		&-items {
+			padding: 0 50px;
+			list-style: none;
+			position: relative;
+			&:before {
+				font-family: FontAwesome;
+				content: '\f0da';
+				color: $yellow;
+				position: absolute;
+				left: 20px;
+				top: 23px;
+				font-size: rem-calc(24);
+				@include breakpoint (small only) {
+					left: 10px;			
+				}
+			}
+			@include breakpoint (small only) {
+				padding: 0 30px;
+			}			
+		}
+		&-title {
+			color: white;
+			font-size: rem-calc(16);
+			font-weight: 700;
+			margin-bottom: 0;
+		}
+		&-subtitle {
+			color: $yellow;
+			font-size: rem-calc(24);
+			font-weight: 700;
+			margin-top: 0;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.advantage {
+	&__container {
+		@include flex-grid-row();
+		display: flex;
+		justify-content: space-around;
+		padding-top: 70px;
+	}
+	&__block {
+		margin: 10px 20px 50px 20px;
+		text-align: center;
+		max-width: 170px;
+		width: 100%;		
+	}
+	&__icon {
+		color: $yellow;
+		font-size: rem-calc(48);
+		margin-bottom: 70px;
+	}
+	&__title {
+		font-size: rem-calc(14);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 35px;
+	}
+	&__txt {
+		color: #979797;
+		font-size: rem-calc(14);
+		font-weight: 400;
+		line-height: 20px;
+	}
+}

@@ -1,0 +1,250 @@
+.about {
+	&__container {
+		@include flex-grid-row();
+		justify-content: space-between;
+		// margin-bottom: 300px;
+		height: 1250px;
+		position: relative;
+		@include breakpoint (medium only) {
+			min-height:2000px;
+		}
+		@include breakpoint (small only) {
+			min-height: 4000px;
+		}
+	}
+	&__article {
+		@include flex-grid-column(4);
+		margin-top: 50px;
+		position: relative;
+		perspective: 3000px;
+		@include breakpoint (medium only) {
+			@include flex-grid-row();			
+			@include flex-grid-column(5);
+		}
+		@include breakpoint (small only) {
+			@include flex-grid-row();			
+			@include flex-grid-column(10);
+		}
+		&:hover {
+			.about__article-wrap--front  {
+				transform: rotateY(-180deg);
+			}
+			.about__article-wrap--back {
+				transform: rotateY(0deg);
+			}
+		}
+		&-1{
+			top: -70px;
+		}
+		&-2 {
+			top: -100px;
+			@include breakpoint (medium only) {
+				top: -70px;
+			}
+		}
+		&-3 {
+			top: -70px;
+		}
+		&-wrap {
+			display: flex;
+			flex-direction: column;
+			width: 90%;
+			background-color: #f3f3f3;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transform-style: preserve-3d;
+			transition: .8s ease;
+			transition-property: transform;
+			height: 600px;
+			// @include breakpoint (medium only) {
+			// 		height: inherit;					
+			// 	}
+			&--front {
+				backface-visibility: hidden;
+				z-index: 1;
+			}
+			&--back {
+				transform: rotateY(-180deg) translateZ(0);
+				backface-visibility: hidden;
+			}
+			&-back {
+				border: 3px solid $yellow;
+				overflow: hidden;				
+			}
+			&-back-1 {
+				background: url('../img/layer-31-copy-2.png');
+				background-repeat: no-repeat;
+				background-position-y: 130%;
+				background-color: $white;
+				background-position-x: 100%;
+			}
+			&-back-2 {
+				background: url('../img/layer-6-copy-2.png');
+				background-repeat: no-repeat;
+				background-color: $white;
+				background-position-y: 130%;
+				background-position-x: 100%;
+			}
+			&-back-3 {
+				background: url('../img/rectangle-4.png');
+				background-color: $white;
+				background-repeat: no-repeat;
+				background-position-y: 120%;
+				background-position-x: 0%;
+			}
+		}
+		&-title {
+			font-size: rem-calc(24);
+			font-weight: 700;
+			text-transform: uppercase;
+			padding-left: rem-calc(40);
+			position: relative;
+			@include breakpoint (medium only) {
+				font-size: rem-calc(18);
+			}
+			&:before {
+				font-family: FontAwesome;
+				content: '\f0da';
+				color: $yellow;
+				font-size: rem-calc(40);
+				position: absolute;
+				left: 0px;
+				top: -12px;
+			}
+			&-back {
+				&:before {
+					display: none;
+				}
+				&-2 {
+
+				}
+			}
+			&-2 {
+				font-size: rem-calc(20);
+				@include breakpoint (medium only) {
+					font-size: rem-calc(18);					
+				}
+			}
+		}
+		&-txt {
+			color: #989898;
+			font-size: rem-calc(14);
+			font-weight: 400;
+			max-width: rem-calc(300);
+			padding-left: rem-calc(40);
+			@include breakpoint (medium) {
+				padding-right: rem-calc(10);					
+			}
+			&-back {
+				margin-bottom: 0;
+			}
+		}
+		&-img {
+			margin-top: rem-calc(70);	
+				margin-bottom: rem-calc(50);
+
+			&-1 {
+
+				@include breakpoint (medium only) {
+
+				}
+			}
+			&-2 {
+				margin-bottom: rem-calc(50);
+				@include breakpoint (medium only) {
+	
+				}					
+			}
+			&-3 {
+				margin-bottom: rem-calc(90);
+				@include breakpoint (medium only) {
+	
+				}				
+			}
+		}
+		&-list {
+			&-back {
+				margin-bottom: 100px;
+				@include breakpoint (medium only) {
+					margin-bottom: rem-calc(20);
+				}
+				@include breakpoint (small only) {
+					margin-bottom: rem-calc(40);
+				}
+			}
+			&-item-back {
+				list-style: none;
+				padding: 10px;
+				padding-left: 20px;
+				position: relative;
+				font-family: $body-font-family-myriad;
+				@include breakpoint (medium only) {
+					font-size: rem-calc(12);
+				}
+				@include breakpoint (small only) {
+					font-size: rem-calc(12);
+					padding: 4px;
+					padding-left: 10px;
+				}
+				&:before {
+					font-family: FontAwesome;
+					content: '\f0da';
+					color: $yellow;
+					font-size: rem-calc(16);
+					position: absolute;
+					left: 0;
+					top: 8px;
+
+				}
+			}
+
+		}
+		&-btn {
+			margin: 0 auto;
+			margin-bottom: 20px;
+			&-link {
+				font-weight: 600;
+				text-transform: uppercase;
+				display: inline-block;
+				text-align: center;
+				text-decoration: none;
+				margin: 0 10px;
+				padding: 20px 0;
+				width: 130px;
+				border: 2px solid $yellow;
+				color: $black;
+				transition: background-color .3s ease;
+				transition: color .3s ease;
+				@include breakpoint (medium only) {
+					font-size: rem-calc(12);			
+					margin: 0 2px;
+					width: 100px;
+				}
+				@include breakpoint (small only) {					
+					width: 100px;
+					margin: 0;
+				}
+				&:hover {
+					color: black;
+					background-color: $yellow;
+				}
+				&--active {
+					background-color: $yellow;
+					&:hover {
+						color: white;
+					}
+				}
+				&--left-2 {
+					width: 200px;
+				}
+				&--left-back-2 {
+					width: 200px;
+					&:hover {
+						color: white;
+					}
+				}				
+			}
+		}
+	}
+}

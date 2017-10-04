@@ -1,0 +1,129 @@
+.learn {
+	background: url('../img/istock-000019076247xlarge.png');
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top right;
+    border-bottom: 10px solid $yellow;
+    @include breakpoint (medium only) {
+		background-position: top right;
+		background-size: 100%;
+	}
+	@include breakpoint (small only) {
+		background-size: 100%;
+		background-position: top;
+	}
+	&__container {
+		@include flex-grid-row();
+	}
+	&__wrap {
+		@include flex-grid-column(12);
+		padding-top: 100px;
+		padding-bottom: 100px;
+		@include breakpoint (medium only) {
+			padding-top: 20px;
+		}
+		@include breakpoint (small only) {
+			padding-top: 0;
+			padding-bottom: 30px;
+		}
+	}
+	&-txt-wrap {
+		@include flex-grid-column(6);
+
+		@include breakpoint (medium only) {
+			@include flex-grid-row();			
+			@include flex-grid-column(12);
+			max-width: rem-calc(300);
+			text-align: justify;
+		}
+	}
+	&__title {
+		color: $black;
+		font-size: rem-calc(36);
+		font-weight: 700;
+		text-transform: uppercase;
+		position: relative;
+		margin-bottom: 50px;
+		&:before {
+			font-family: FontAwesome;
+			content: '\f278';
+			color: $yellow;
+			position: absolute;
+			left: 160px;
+			top: -20px;
+			font-size: rem-calc(24);
+			@include breakpoint (small only) {
+				left: 100px;
+			    top: 0px;
+			    font-size: 14px;
+			}
+		}
+		@include breakpoint (medium only) {
+			margin-bottom: 260px;
+		}
+		@include breakpoint (small only) {
+			font-size: rem-calc(24px);
+			margin-bottom: rem-calc(140);
+		}
+	}
+	&__subtitle {
+		font-weight: 700;	
+		margin-bottom: 50px;
+		margin-top: 0;	
+		@include breakpoint (medium down) {
+			margin-bottom: 20px;
+		}
+	}
+	&__txt {
+		color: $medium-gray;
+		font-size: rem-calc(14);
+		max-width: rem-calc(500);
+		margin-bottom: 150px;
+		@include breakpoint (medium down) {
+			margin-bottom: 30px;
+			color: $dark-gray;
+		}
+	}
+	&__buttons {
+		display: flex;
+		@include breakpoint (medium only) {
+			justify-content: center;
+		}
+		@include breakpoint (small only) {
+			flex-direction: column;
+		}
+		&-wrap {
+			text-align: center;
+			&--left {
+				padding-right: 70px;
+				@include breakpoint (small only) {
+					padding-right: rem-calc(10);
+				}
+			}
+		}
+		&-link {
+			display: inline-block;
+			text-decoration: none;
+			padding: 20px 30px;
+			border: 2px solid $yellow;
+			color: $black;
+			font-weight: 700;
+			text-transform: uppercase;
+			transition: background-color .3s ease;
+			@include breakpoint (medium only) {
+				background-color: $yellow;
+			}
+			@include breakpoint (small only) {
+				width: 90%;
+			}
+			&:hover {
+				background-color: $yellow;
+			}
+		}
+		&-subtitle {
+			color: #979797;;
+			font-size: rem-calc(11);
+			font-weight: 400;
+		}
+	}
+}

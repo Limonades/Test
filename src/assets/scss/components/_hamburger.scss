@@ -1,0 +1,225 @@
+$hamburger-color: $yellow;   
+$hamburger-width: 2.2; //value will be in REMs
+$hamburger-thickness: 0.2125; //value will be in REMs
+$hamburger-transition: 0.3; //value will be seconds
+$hamburger-border-radius: 0.275; //value will be in REMs
+$hamburger-spacing: .75; // value will be in REMs
+
+.hamburger {
+  position: relative;
+  display: none;
+  height: 2rem;
+  width: #{$hamburger-width}rem;
+  transition: #{$hamburger-transition}s;
+  margin:1rem 1rem 0;
+  //replace with breakpoints
+  @media screen and (max-width: 63.9375em) {
+    display: block;
+  }
+  span {
+    top: 0.5rem;
+    position: absolute;
+    height: #{$hamburger-thickness}rem;
+    width: #{$hamburger-width}rem;
+    left: 0;
+    background: $hamburger-color;
+    border-radius: #{$hamburger-border-radius}rem;
+    transition: #{$hamburger-transition}s, 0s background;
+    &:after {
+      content: '';
+      position: absolute;
+      width: #{$hamburger-width}rem;
+      height: #{$hamburger-thickness}rem;
+      background: $hamburger-color;
+      border-radius: #{$hamburger-border-radius}rem;
+      transition: #{$hamburger-transition}s;
+      left: 0;
+      top: #{$hamburger-spacing}rem;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      width: #{$hamburger-width}rem;
+      height: #{$hamburger-thickness}rem;
+      background: $hamburger-color;
+      border-radius: #{$hamburger-border-radius}rem;
+      transition: #{$hamburger-transition}s;
+      left: 0;
+      top: -#{$hamburger-spacing}rem;
+    }
+  }
+  &.open {
+    margin-left: .85rem;
+    span {
+      background: transparent;
+      border-radius: 100%;
+      &:after {
+        left: 50%;
+        top: 50%;
+        margin: -.125rem 0 0 -.85rem;
+        width: 1.95rem;
+        transform: rotate(135deg);
+      }
+      &:before {
+        left: 50%;
+        top: 50%;
+        margin: -.125rem 0 0 -.85rem;
+        width: 1.95rem;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}
+
+$menu-height: 51px;
+$menu-link-color: #333;
+$menu-container-background: lightgray;
+
+.menu-container {
+  // background: $menu-container-background;
+  display: flex;
+  width: 100%;
+  position: relative;
+  min-height: $menu-height;
+  .menu {
+    .header__nav-menu-link, .header__nav-mobile-menu-link {
+      // color: $menu-link-color;
+      // padding-top:0;
+      line-height: $menu-height;
+    }
+    &.main-navigation {
+      display: none;
+      @media screen and (min-width: 63.9375em) {
+        display: inline-block;
+        width: auto;
+        margin:0 auto;
+
+      }
+      .header__nav-menu-item {
+        display: inline-block;
+        &:last-child {
+          display: none;
+          @include breakpoint (medium down) {
+            display: flex;
+            width: 100%;
+          }
+
+        }
+      }
+      &.open {
+        @media screen and (max-width: 63.9375em) {
+          display: block;
+          position: absolute;
+          top:100%;
+          clip: auto;
+          margin:0;
+          width:100%;
+          left:0;
+          z-index: 100;
+          li {
+            background: rgba(0, 0, 0, 0.95);
+            display: block;
+            transition: background .3s ease;
+            @for $i from 1 through 10 {
+              &:nth-of-type(#{$i}) {
+                animation-delay: #{$i*100}ms;
+              }
+            }
+            @include breakpoint (medium down) {
+                 &:last-child {
+                  background: $yellow;
+                  h2 {
+                    margin-top: 0;
+                    padding-top: 10px;
+                  }
+                &:after {
+                  display: none;
+                }
+              }      
+            }
+            
+            .header__nav-mobile-menu {
+              border-top: 1px solid #5c5c5c;
+              border-bottom: 1px solid #5c5c5c;
+            }
+            .header__nav-mobile-menu-item {
+              z-index: 200;
+                  background: rgba(0, 0, 0, 0.6);
+              // background: $dark-gray;
+              &:hover {
+                color: black;
+                .header__nav-mobile-menu-link {
+                  color: black;
+                  font-weight: 600;
+                }
+              }
+              .header__nav-mobile-menu-link {
+                color: white;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 1rem 50rem 1rem 0rem;
+              }
+            }
+            &:hover {
+              background: $yellow;
+              &:after {
+                color: black;
+              }
+              .header__nav-menu-link {
+                color: black;
+              }
+            }
+            &.header__nav-menu-item--active {        
+                // background: $dark-gray;
+                &:hover {
+                  background: rgba(0, 0, 0, 0.95);
+                }  
+                .header__nav-menu-link {
+                  color: $yellow;
+                }
+                &:after {
+                  display: none;
+                }
+                &:before {
+                  font-family: FontAwesome;
+                  content: "\f0d8";
+                  color: $yellow;
+                  position: absolute;
+                  right: 30px;
+                  top: 15px;
+                }           
+            }
+          }
+        }
+        overflow: hidden;
+        > li {
+          @extend .animated;
+          @extend .fadeInRight;
+        }
+      }
+    }        
+  }
+}
+
+
+// Some animations
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animated {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+}
